@@ -284,7 +284,7 @@ function sizes (array, indexnumber) {
     return size[indexnumber]
 }
 
-const size = sizes(inventory, 3);
+const size = sizes(inventory, 2);
 console.log (size);
 
 console.log("//////////////// Opdracht 4d ////////////////");
