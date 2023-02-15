@@ -164,7 +164,7 @@ const inventory = [
 
 console.log("//////////////// Opdracht 1a ////////////////")
 
-const tvTypes = inventory.map((tvType) => {
+inventory.map((tvType) => {
     console.log(tvType.type);
 });
 
@@ -185,11 +185,107 @@ console.log(ambiLightFinder);
 
 console.log("//////////////// Opdracht 1d ////////////////")
 
-const tvLowToHigh = inventory.sort( (a, b) => {
+const tvLowToHigh = inventory.sort((a, b) => {
     return a.price - b.price;
 })
 
-console.log (tvLowToHigh);
+console.log(tvLowToHigh);
 
 
+console.log("//////////////// Opdracht 2a ////////////////")
+
+let soldTVs = 0;
+for (let i = 0; i < inventory.length; i++) {
+    soldTVs = (soldTVs + inventory[i].sold);
+}
+
+console.log(soldTVs)
+
+console.log("//////////////// Opdracht 2b ////////////////")
+
+const numberOfSoldTvs = document.getElementById("SoldTvs");
+numberOfSoldTvs.textContent = soldTVs
+
+console.log("//////////////// Opdracht 2c ////////////////")
+
+let boughtInTvs = 0;
+for (let i = 0; i < inventory.length; i++) {
+    boughtInTvs = (boughtInTvs + inventory[i].originalStock);
+}
+console.log(boughtInTvs);
+
+console.log("//////////////// Opdracht 2d ////////////////");
+
+const numberOfBoughtInTvs = document.getElementById("boughtInTvs");
+numberOfBoughtInTvs.textContent = boughtInTvs
+
+console.log("//////////////// Opdracht 2e ////////////////");
+
+const inStock = boughtInTvs - soldTVs;
+const numberOfTvInStock = document.getElementById("stockTvs");
+numberOfTvInStock.textContent = inStock;
+
+
+console.log("//////////////// Opdracht 3a ////////////////");
+
+const brandsList = inventory.map((brand) => {
+    return " " + brand.brand
+});
+console.log(brandsList)
+
+const brandsInStore = document.getElementById("brandList");
+brandsInStore.textContent = brandsList;
+
+
+console.log("//////////////// Opdracht 3b ////////////////");
+
+function brandNames(array) {
+    let outcome = array.map((brand) => {
+        return brand.brand
+    })
+    return outcome
+}
+
+const brands = brandNames(inventory);
+console.log(brands);
+
+
+console.log("//////////////// Opdracht 4a ////////////////");
+
+function nameString(array, indexnumber) {
+    let name = array.map((id) => {
+        return id.brand + " " + id.type + " - " + id.name
+    })
+    return name[indexnumber]
+}
+
+const fullName = nameString(inventory, 1);
+console.log(fullName);
+
+console.log("//////////////// Opdracht 4b ////////////////");
+
+function priceMaker (array, indexnumber) {
+    let price = array.map((id) => {
+        return "€" + id.price + ",-"
+    })
+    return price[indexnumber]
+}
+
+const price = priceMaker(inventory, 1);
+console.log (price);
+
+
+console.log("//////////////// Opdracht 4c ////////////////");
+
+function sizes (array, indexnumber) {
+    let size = array.map((id) => {
+        return id.availableSizes + " (" + (2.53 * id.availableSizes) + "cm)"
+    })
+    return size[indexnumber]
+}
+
+const size = sizes(inventory, 3);
+console.log (size);
+
+console.log("//////////////// Opdracht 4d ////////////////");
 
